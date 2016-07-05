@@ -1,7 +1,6 @@
 import sys
 from PIL import Image
 
-
 # define your flip function here
 
 def blur(img):
@@ -14,11 +13,8 @@ def blur(img):
             pixels[x, y] = avg(r)
     imgup.show()
 
-
-
 def avg(data):
     return sum(data) / len(data)
-
 
 def region3x3(img, x, y):
     mid = getpixel(img, x, y)
@@ -32,7 +28,6 @@ def region3x3(img, x, y):
     NW = getpixel(img, x - 1, y - 1)
     return [mid, N, NE, E, SE, S, SW, W, NW]
 
-
 def getpixel(img, x, y):
     width, height = img.size
     if x < 0:
@@ -45,10 +40,6 @@ def getpixel(img, x, y):
         y = height - 1
     return img.load()[x,y]
 
-
-print(avg([1, 2, 3, 4, 5]))
-
-
 if len(sys.argv) <= 1:
     print("missing image filename")
     sys.exit(1)
@@ -59,7 +50,3 @@ img.show()
 
 # call your flip function here
 blur(img)
-print(getpixel(img,0,0))
-print(getpixel(img,0,1))
-print(getpixel(img,10,20))
-
